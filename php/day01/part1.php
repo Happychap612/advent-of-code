@@ -1,6 +1,6 @@
 <?php
-$data = file('./input_data');
-// $data = file('./sample_data');
+$data = file('./input.data');
+// $data = file('./sample.data');
 $result = 0;
 
 for ($i = 0; $i < count($data); $i++) {
