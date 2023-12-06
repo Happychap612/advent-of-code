@@ -1,12 +1,11 @@
 <?php
-$data = file('./input_data');
-// $data = file('./sample_data');
+$data = file('./input.data');
+// $data = file('./sample.data');
 $result = 0;
 
 for ($x = 0; $x < count($data); $x++) {
     $datum = $data[$x];
     $proc = substr($datum, 5); // string without 'Game ' at the start
-    $ID = substr($proc, 0, stripos($proc, ':')); // the game ID 
     $proc = substr($proc, stripos($proc, ':') + 2); // the pur game results
 
     $gameMax = [

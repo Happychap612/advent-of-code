@@ -1,7 +1,6 @@
 <?php
-$data = file('./input_data');
-// $data = file('./sample_data');
-// $data = file('./extra_data');
+$data = file('./input.data');
+// $data = file('./sample.data');
 $result = 0;
 
 $bag = [
