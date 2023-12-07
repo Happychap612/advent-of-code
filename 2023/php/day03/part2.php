@@ -1,5 +1,4 @@
 <?php
-include './func.php';
 
 // $table = file('./input.data');
 // $table = file('./input2.data');
@@ -37,39 +36,6 @@ for ($y = 0; $y < count($table); $y++) {
             $matchNo++;
             continue;
         }
-
-        //SAME
-        for ($s = $minMaxSearch[0]; $s < $minMaxSearch[1]; $s++) {
-            if ($row[$s] !== '.' && !is_numeric($row[$s]) && !$continue) {
-                $result += $match;
-                $continue = true;
-            }
-        }
-        if ($continue) {
-            $matchNo++;
-            continue;
-        }
-
-
-        //DOWN
-        if ($y < $height - 1) {
-            $checkRow = $table[$y + 1];
-            for ($s = $minMaxSearch[0]; $s < $minMaxSearch[1]; $s++) {
-                if ($checkRow[$s] !== '.' && !is_numeric($checkRow[$s]) && !$continue) {
-                    $result += $match;
-                    $continue = true;
-                }
-            }
-        }
-        if ($continue) {
-            $matchNo++;
-            continue;
-        }
-        $noResult += $match;
-        $noMatchNo++;
-        $badMatches[] = $match;
-        // print "$match - $y, $pos\n";
-    }
 }
 
 print 'Result: ' . $result . PHP_EOL;
