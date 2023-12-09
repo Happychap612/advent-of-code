@@ -1,5 +1,5 @@
 <?php
-
+ 
 $table = file('./input.data');
 // $table = file('./input2.data');
 // $table = file('./input3.data');
@@ -74,4 +74,4 @@ for ($y = 0; $y < count($table); $y++) {
     }
 }
 
-print 'Result: ' . $result . PHP_EOL;
+print "Result: $result\n";
