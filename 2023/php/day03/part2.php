@@ -49,14 +49,14 @@ for ($y = 0; $y < count($table); $y++) {
                     $smAL = strlen($sm[0][$smi][0]); //Slice Match Actual Length
 
                     $checkSlice = substr($row, $smAP - 1, $smAL);
-                    while (!preg_match('/\./', $checkSlice) && preg_match('/\d{1,3}/', $checkSlice) && $smAP !== 0) {
+                    while (!preg_match('/\./', $checkSlice) && is_numeric($checkSlice) && $smAP !== 0) {
                         $smAP--;
                         $smAL++;
                         $checkSlice = substr($row, $smAP - 1, $smAL); // setup next checkSlice
                     }
 
                     $checkSlice = substr($row, $smAP, $smAL + 1); // && ($smAP + $smAL) <= $max
-                    while (!preg_match('/\./', $checkSlice) && preg_match('/\d{1,3}/', $checkSlice && ($smAP + $smAL) !== $width)) {
+                    while (!preg_match('/\./', $checkSlice) && is_numeric($checkSlice) && ($smAP + $smAL) !== $width) {
                         $smAL++;
                         $checkSlice = substr($row, $smAP, $smAL + 1); // setup next checkSlice
                     }
@@ -69,7 +69,6 @@ for ($y = 0; $y < count($table); $y++) {
 
         // checked all the rows for that gear
         if ($partCountForGear == 2) {
-            // print "$partsForGear[0] x $partsForGear[1]\n";
             $result += $partsForGear[0] * $partsForGear[1];
         }
     }
