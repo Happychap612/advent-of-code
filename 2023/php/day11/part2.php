@@ -5,42 +5,36 @@ $universe = file('./input.data');
 
 $res = 0;
 $galaxies = [];
-$width = 0;
+$height = count($universe);
+$width = strlen($universe[count($universe) - 1]);
+
+$universeExpansionRate = 1000000;
 
 // columns where there are galaxies so we know which ones to increase later
 $xMatches = [];
+$xEmpty = [];
+$yEmpty = [];
 
 // Loop through the universe and find any 
-for ($y = 0; $y < count($universe); $y++) {
+for ($y = 0; $y < $height; $y++) {
     preg_match_all('/\#/', $universe[$y], $g, PREG_OFFSET_CAPTURE);
     $g = $g[0];
     for ($z = 0; $z < count($g); $z++) {
         $xMatches[$g[$z][1]] = $g[$z][1];
     }
     if (count($g) == 0) {
-        // splice the new rows in if no galaxies in that row
-        array_splice($universe, $y, 0, $universe[$y]);
-        $y++;
+        $yEmpty[] = $y;
     }
-    $width = strlen($universe[$y]);
 }
 
-//List of columns where no galaxies are found ever so we know where to insert the new columns
-$xMod = [];
+//List of columns where no galaxies are found ever
 for ($i = 0; $i < $width; $i++) {
     if (!array_key_exists($i, $xMatches)) {
-        $xMod[] = $i;
+        $xEmpty[] = $i;
     }
 }
-arsort($xMod); // reverse order so inserting the in column 2 doesn't mess with the position of column 3
-$xMod = array_values($xMod);
+$xEmpty = array_values($xEmpty);
 
-// loop through xMod to modify each universe row with new columns
-for ($y = 0; $y < count($universe); $y++) {
-    for ($x = 0; $x < count($xMod); $x++) {
-        $universe[$y] = substr($universe[$y], 0, $xMod[$x]) . "." . substr($universe[$y], $xMod[$x]);
-    }
-}
 
 // now go find our galaxies
 for ($y = 0; $y < count($universe); $y++) {
@@ -58,7 +52,29 @@ for ($p = 0; $p < count($uniquePairs); $p++) {
     $a = $galaxies[$x[0]];
     $b = $galaxies[$x[1]];
 
-    $r = abs($a[0] - $b[0]) + abs($a[1] - $b[1]);
+    $r = 0;
+
+    for ($i = 0; $i < count($xEmpty); $i++) {
+        $m = $xEmpty[$i];
+
+        $min = min($a[0], $b[0]);
+        $max = max($a[0], $b[0]);
+        if ($min <= $m && $m <= $max) {
+            $r += $universeExpansionRate - 1;
+        }
+    }
+
+    for ($i = 0; $i < count($yEmpty); $i++) {
+        $m = $yEmpty[$i];
+
+        $min = min($a[1], $b[1]);
+        $max = max($a[1], $b[1]);
+        if ($min <= $m && $m <= $max) {
+            $r += $universeExpansionRate - 1;
+        }
+    }
+
+    $r += abs($a[0] - $b[0]) + abs($a[1] - $b[1]);
     $res += $r;
 }
 
