@@ -2,19 +2,12 @@
 $records = file('./input.data');
 // $records = file('./sample.data');
 
-$time = array_shift($records);
-$record = array_shift($records);
-unset($records);
-
-preg_match_all('!\d+!', $time, $time);
-$times = $time[0];
-preg_match_all('!\d+!', $record, $record);
-$records = $record[0];
-
-$raceRecords = [];
+preg_match_all('!\d+!', array_shift($records), $times);
+$times = $times[0];
+preg_match_all('!\d+!', array_shift($records), $records);
+$records = $records[0];
 
 $result = 1;
-
 for ($i = 0; $i < count($times); $i++) {
     $rec = $records[$i];
     $time = $times[$i];
