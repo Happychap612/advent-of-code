@@ -2,6 +2,8 @@
 $almanac = file('./input.data');
 // $almanac = file('./sample.data');
 
+// @TODO come back and do this right you cheating fuck
+
 // PROCESS ALMANAC INTO SECTIONS
 // SEEDS
 $seeds = array_shift($almanac);
