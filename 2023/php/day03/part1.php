@@ -1,5 +1,6 @@
 <?php
-function getMinMaxRow(int $pos, int $width, int $len) {
+function getMinMaxRow(int $pos, int $width, int $len)
+{
     $min = $pos === 0 ? $pos : $pos - 1;
     $max = $min + $len + 2;
     $max = $max > $width ? $width : $max;
@@ -7,12 +8,13 @@ function getMinMaxRow(int $pos, int $width, int $len) {
     return [$min, $max];
 }
 
-$table = file('./input.data');
-// $table = file('./input2.data');
-// $table = file('./input3.data');
-// $table = file('./extra.data');
-// $table = file('./extra2.data');
-// $table = file('./sample.data');
+$dataDir = "../../data/day03";
+$table = file("$dataDir/input.data");
+// $table = file("$dataDir/input2.data");
+// $table = file("$dataDir/input3.data");
+// $table = file("$dataDir/extra.data");
+// $table = file("$dataDir/extra2.data");
+// $table = file("$dataDir/sample.data");
 
 $result = 0;
 $height = count($table);

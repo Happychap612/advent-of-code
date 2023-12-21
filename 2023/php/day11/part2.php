@@ -1,7 +1,8 @@
 <?php
 include './util.php';
-$universe = file('./input.data');
-// $universe = file('./sample.data');
+$dataDir = "../../data/day11";
+$universe = file("$dataDir/input.data");
+// $universe = file("$dataDir/sample.data");
 
 $res = 0;
 $galaxies = [];

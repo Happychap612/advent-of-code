@@ -1,8 +1,9 @@
 <?php
-$mapData = file_get_contents('./input.data');
-// $mapData = file_get_contents('./sample1.data');
-// $mapData = file_get_contents('./sample2.data');
-// $mapData = file_get_contents('./sample3.data');
+$dataDir = "../../data/day08";
+$mapData = file_get_contents("$dataDir/input.data");
+// $mapData = file_get_contents("$dataDir/sample1.data");
+// $mapData = file_get_contents("$dataDir/sample2.data");
+// $mapData = file_get_contents("$dataDir/sample3.data");
 $mapData = explode("\n", $mapData);
 
 $directions = array_shift($mapData);

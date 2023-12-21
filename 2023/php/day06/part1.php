@@ -1,6 +1,7 @@
 <?php
-$records = file('./input.data');
-// $records = file('./sample.data');
+$dataDir = "../../data/day06";
+$records = file("$dataDir/input.data");
+// $records = file("$dataDir/sample.data");
 
 preg_match_all('!\d+!', array_shift($records), $times);
 $times = $times[0];

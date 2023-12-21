@@ -1,6 +1,7 @@
 <?php
-$cards = file('./input.data');
-// $cards = file('./sample.data');
+$dataDir = "../../data/day04";
+$cards = file("$dataDir/input.data");
+// $cards = file("$dataDir/sample.data");
 
 $result = 0;
 

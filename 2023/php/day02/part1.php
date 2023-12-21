@@ -1,6 +1,7 @@
 <?php
-$data = file('./input.data');
-// $data = file('./sample.data');
+$dataDir = "../../data/day02";
+$data = file("$dataDir/input.data");
+// $data = file("$dataDir/sample.data");
 $result = 0;
 
 $bag = [

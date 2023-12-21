@@ -1,6 +1,7 @@
 <?php
-$almanac = file('./input.data');
-// $almanac = file('./sample.data');
+$dataDir = "../../data/day05";
+$almanac = file("$dataDir/input.data");
+// $almanac = file("$dataDir/sample.data");
 
 // PROCESS ALMANAC INTO SECTIONS
 // SEEDS

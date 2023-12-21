@@ -1,7 +1,8 @@
 <?php
-$mapData = file('./input.data');
-// $mapData = file('./sample1.data');
-// $mapData = file('./sample2.data');
+$dataDir = "../../data/day08";
+$mapData = file("$dataDir/input.data");
+// $mapData = file("$dataDir/sample1.data");
+// $mapData = file("$dataDir/sample2.data");
 
 $directions = array_shift($mapData);
 array_shift($mapData);
