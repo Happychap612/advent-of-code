@@ -1,6 +1,6 @@
 <?php
 
-$data = file('input.data');
+$data = file('../../data/day03/input.data');
 $result = ["0,0" => 1];
 $inst = $data[0];
 $x = 0;
